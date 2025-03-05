@@ -9,11 +9,11 @@ jobs:
     # 当前脚本是在容器中运行的，对应的镜像是ubuntu-latest
     runs-on: ubuntu-latest
     steps:
-    # 检出代码
-    - uses: actions/checkout@v2
-    - name: clean up space
-      run:
+    - name: Dump GitHub context
+      run: 
         docker rmi `docker images -q`
+    # 检出代码
+    - uses: actions/checkout@v2        
     - name: Dump GitHub context
       run: 
         cd ${{ github.workspace }} && ls
