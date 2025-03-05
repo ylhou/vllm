@@ -11,6 +11,9 @@ jobs:
     steps:
     # 检出代码
     - uses: actions/checkout@v2
+    - name: clean up space
+      run:
+        docker rmi `docker images -q`
     - name: Dump GitHub context
       run: 
         cd ${{ github.workspace }} && ls
