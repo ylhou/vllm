@@ -1,6 +1,6 @@
 name: 构建docker镜像
 env:
-  my_dockerfile: Dockerfile
+  my_dockerfile: vllm-openai
 # 手动触发
 on: workflow_dispatch
 
@@ -9,9 +9,6 @@ jobs:
     # 当前脚本是在容器中运行的，对应的镜像是ubuntu-latest
     runs-on: ubuntu-latest
     steps:
-    - name: Dump GitHub context
-      run: 
-        docker rmi `$(docker images -q)`
     # 检出代码
     - uses: actions/checkout@v2        
     - name: Dump GitHub context
